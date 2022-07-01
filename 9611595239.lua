@@ -1,3 +1,5 @@
+--// Modificated Rift Royale Script from Vape
+
 -- Credits to Inf Yield & all the other scripts that helped me make bypasses
 local GuiLibrary = shared.GuiLibrary
 local players = game:GetService("Players")
@@ -1146,7 +1148,8 @@ runcode(function()
 								
 								local aliveplr = isAlive(plr, ESPAlive["Enabled"])
 								if aliveplr and plr ~= lplr and (ESPTeammates["Enabled"] or plr:GetAttribute("teamId") ~= lplr:GetAttribute("teamId")) then
-									local rootPos, rootVis = cam:WorldToViewportPoint(plr.HumanoidRootPart.Position)
+                                    -- if plr.HumanoidRootPart
+									-- local rootPos, rootVis = cam:WorldToViewportPoint(plr.HumanoidRootPart.Position)
 									local rigcheck = aliveplr.Humanoid.RigType == Enum.HumanoidRigType.R6
 									if rootVis and plr.Character:FindFirstChild((rigcheck and "Torso" or "UpperTorso")) and plr.Character:FindFirstChild((rigcheck and "Left Arm" or "LeftHand")) and plr.Character:FindFirstChild((rigcheck and "Right Arm" or "RightHand")) and plr.Character:FindFirstChild((rigcheck and "Left Leg" or "LeftFoot")) and plr.Character:FindFirstChild((rigcheck and "Right Leg" or "RightFoot")) and plr.Character:FindFirstChild("Head") then
 										local head = CalculateObjectPosition((aliveplr.Head.CFrame).p)
