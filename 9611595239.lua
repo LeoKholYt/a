@@ -2082,6 +2082,7 @@ runcode(function()
     ItemESPFolder.Parent = GuiLibrary["MainGui"]
     local ItemESPDisplayName = {["Enabled"] = false}
     local ItemESPScale = {["Value"] = 10}
+    local ItemESPDistance = {["Value"] = 200}
     local ItemESPFont = {["Value"] = "SourceSans"}
     local fontitems = {"SourceSans"}
     local ItemESP = {["Enabled"] = false}
@@ -2097,7 +2098,7 @@ runcode(function()
 						task.wait(0.1)
 						local localchar = isAlive()
 						for i,plr in pairs(collectionservice:GetTagged("ground-item-component")) do 
-							local newval = ((localchar and localchar.HumanoidRootPart.Position or Vector3.new(999999, 99999, 999999)) - plr.Position).Magnitude <= 1000
+							local newval = ((localchar and localchar.HumanoidRootPart.Position or Vector3.new(999999, 99999, 999999)) - plr.Position).Magnitude <= ItemESPDistance["Value"]
 							local ind = table.find(itemsnear, plr)
 							if newval then
 								if not ind then
@@ -2186,6 +2187,13 @@ runcode(function()
         ["Default"] = 10,
         ["Min"] = 1,
         ["Max"] = 50
+    })
+    ItemESPDistance = ItemESP.CreateSlider({
+        ["Name"] = "Distance",
+        ["Function"] = function(val) end,
+        ["Default"] = 200,
+        ["Min"] = 100,
+        ["Max"] = 1500
     })
 end)
 
